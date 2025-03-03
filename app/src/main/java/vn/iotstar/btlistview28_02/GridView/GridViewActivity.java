@@ -7,9 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -24,10 +26,13 @@ public class GridViewActivity extends AppCompatActivity {
     GridView gridView;
     ArrayList<String> arrayList;
     EditText edt_Input;
-    Button btn_add, btn_update;
+    Button btn_add, btn_update, btn_remove;
     int vitri = -1;
+    ListView listView;
+    ArrayList<MonHoc> arrayMonHoc;
+    MonHocAdapter adapter;
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -36,6 +41,7 @@ public class GridViewActivity extends AppCompatActivity {
         edt_Input = findViewById(R.id.editTextInput);
         btn_add = findViewById(R.id.btnSubmit);
         btn_update = findViewById(R.id.btnUpdate);
+        btn_remove = findViewById(R.id.btnRemove);
 
         arrayList = new ArrayList<>();
         arrayList.add("Java");
@@ -80,5 +86,34 @@ public class GridViewActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        btn_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                arrayList.remove(vitri);
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }*/
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_grid_view);
+        AnhXa();
+        adapter = new MonHocAdapter(GridViewActivity.this, R.layout.row_monhoc, arrayMonHoc);
+        gridView.setAdapter(adapter);
     }
+    private void AnhXa() {
+        gridView = (GridView) findViewById(R.id.gridView);
+
+        //Thêm dữ liệu vào List
+        arrayMonHoc = new ArrayList<>();
+        arrayMonHoc.add(new MonHoc("Java","Java 1",R.drawable.java));
+        arrayMonHoc.add(new MonHoc("C#","C# 1",R.drawable.cshap));
+        arrayMonHoc.add(new MonHoc("PHP","PHP 1",R.drawable.php));
+        arrayMonHoc.add(new MonHoc("Kotlin","Kotlin 1",R.drawable.kotlin));
+        arrayMonHoc.add(new MonHoc("Dart","Dart 1",R.drawable.java));
+    }
+
+
 }
