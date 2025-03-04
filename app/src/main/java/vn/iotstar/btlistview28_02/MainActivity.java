@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import vn.iotstar.btlistview28_02.GridView.GridViewActivity;
 import vn.iotstar.btlistview28_02.ListView.ListviewActivity;
+import vn.iotstar.btlistview28_02.RecyclerView.MultipleViewType.UserActivity;
 import vn.iotstar.btlistview28_02.RecyclerView.RecylerViewActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_Listview, btn_Gridview, btn_Recylerview;
+    Button btn_Listview, btn_Gridview, btn_Recylerview, btn_mulRecylerview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         btn_Recylerview = findViewById(R.id.btn_recylerview);
         btn_Recylerview.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, RecylerViewActivity.class);
+            startActivity(intent);
+        });
+
+        btn_mulRecylerview = findViewById(R.id.btn_mtbRecyview);
+        btn_mulRecylerview.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, UserActivity.class);
             startActivity(intent);
         });
     }
