@@ -29,9 +29,10 @@ public class ListAdapter extends ArrayAdapter<ListData> {
             view = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
 
         }
+        //Anh xa
         ImageView listImage = view.findViewById(R.id.listImage);
         TextView listName = view.findViewById(R.id.listName);
-
+        //Gan du lieu
         listImage.setImageResource(listData.Imgage);
         listName.setText(listData.name);
         return view;

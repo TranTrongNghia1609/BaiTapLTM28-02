@@ -26,7 +26,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     }
     @Override
     public SongViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
-// Inflate view from row_item_song.xml
+        // Inflate view from row_item_song.xml
         View itemView = mLayoutInflater.inflate(R.layout.row_item_song, parent, false);
         return new SongViewHolder(itemView);
     }
@@ -48,7 +48,6 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
 
     class SongViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTitle, tvLyric, tvArtist, tvCode;
-
         public SongViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tv_title);
